@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					23DD60C41F68EA28002FF866 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UGX5XJAP97;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UGX5XJAP97;
 				INFOPLIST_FILE = ParkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nttresonat.ParkApp;
@@ -272,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UGX5XJAP97;
 				INFOPLIST_FILE = ParkApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nttresonat.ParkApp;
