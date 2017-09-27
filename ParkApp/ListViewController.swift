@@ -21,6 +21,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         memoTableView.dataSource = self
         memoTableView.delegate = self
         
+        
         memoTableView.tableFooterView = UIView()
         
     }
@@ -41,34 +42,38 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-        
-        cell.textLabel?.text = memoArray[indexPath.row].object(forKey: "memo") as? String
+        cell.textLabel?.text = memoArray[indexPath.row].object(forKey: "parkName") as? String
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "toDetail", sender: nil)
+        self.performSegue(withIdentifier: "toAdd", sender: nil)
         
         print(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
-//        //次の画面の取得（Dtail）
-//        if segue.identifier == "toDetail" {
-//            let detailViewController = segue.destination as! DetailViewController
-//            
-//            let selectedIndex = memoTableView.indexPathForSelectedRow!
-//            
-//            detailViewController.selectedMemo = memoArray[selectedIndex.row]
-//        }
-//        
-//    }
+     override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
+
+        //次の画面の取得（Add）
+     if segue.identifier == "toAdd" {
+            let parklViewController = segue.destination as! ParkViewController
+        
+        //受け渡し
+        if let selectedIndex = memoTableView.indexPathForSelectedRow {
+            parklViewController.toObject = memoArray[selectedIndex.row]
+        }
+        
+        
+        
+        }
+        
+    }
     
     func loadData() {
         
-        let query = NCMBQuery(className: "Memo")
+        let query = NCMBQuery(className: "Park")
         query?.findObjectsInBackground({ (result, error) in
             if error != nil {
                 print(error)

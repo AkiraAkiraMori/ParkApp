@@ -110,7 +110,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="公園情報" id="PPk-Qs-GP7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="snT-IT-9ai"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="snT-IT-9ai">
+                            <connections>
+                                <action selector="save" destination="g8j-sa-2do" id="irV-mx-gvL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="parkInfoTableView" destination="RXL-et-yZ9" id="SKd-1N-uLB"/>

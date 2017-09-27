@@ -14,6 +14,8 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
     
     var titleArray = ["公園名", "所在地", "所要時間", "遊具の種類", "自転車", "水遊び", "期待度", "滞在時間", "自分の満足度", "子供の満足度"]
     var okArray = ["感想"]
+    
+    var toObject: NCMBObject?
 
     //入力項目文宣言する
     
@@ -48,6 +50,7 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         parkInfoTableView.dataSource = self
         parkInfoTableView.delegate = self
@@ -83,19 +86,59 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         
         let okCell = tableView.dequeueReusableCell(withIdentifier: "OKCell") as! OKTableViewCell
         
+        print(toObject)
+        
         if indexPath.row < 10 {
             parkInfoCell.titleLabel.text = titleArray[indexPath.row]
             parkInfoCell.contentTextField.delegate = self
             
             parkInfoCell.contentTextField.tag = indexPath.row
+ 
+  //受け渡されたデータをアプリ上に表示する
             
-            // parkInfoCell.contentTextField.text =
+            if indexPath.row == 0 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "parkName") as? String
+            
+            } else if indexPath.row == 1 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "place") as? String
+                
+            } else if indexPath.row == 2 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "time") as? String
+                
+            } else if indexPath.row == 3 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "playGround") as? String
+                
+            } else if indexPath.row == 4 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "bicycle") as? String
+                
+            } else if indexPath.row == 5 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "swimming") as? String
+                
+            } else if indexPath.row == 6 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "expectations") as? String
+                
+            } else if indexPath.row == 7 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "stay") as? String
+                
+            } else if indexPath.row == 8 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "mySatisfaction") as? String
+                
+            } else if indexPath.row == 9 {
+                parkInfoCell.contentTextField.text = toObject?.object(forKey: "childSatisfaction") as? String
+                
+            }
             
             return parkInfoCell
         }
         
         else {
             okCell.titleLabel.text = okArray[indexPath.row - titleArray.count]
+            okCell.contentTextField.delegate = self
+            okCell.contentTextField.tag = 10
+            if indexPath.row == 10 {
+                okCell.contentTextField.text = toObject?.object(forKey: "impressions") as? String
+            }
+            
             return okCell
         }
     }
@@ -162,16 +205,90 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         self.present(actionController, animated: true, completion: nil)
         
     }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(textField.text)
-        
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 0 {
             parkName = textField.text
-        
+            
         } else if textField.tag == 1 {
+            place = textField.text
+            
+        } else if textField.tag == 2 {
+            time = textField.text
+            
+        } else if textField.tag == 3 {
+            playGround = textField.text
+            
+        } else if textField.tag == 4 {
+            bicycle = textField.text
+            
+        } else if textField.tag == 5 {
+            swimming = textField.text
+            
+        } else if textField.tag == 6 {
+            expectations = textField.text
+            
+        } else if textField.tag == 7 {
+            stay = textField.text
+            
+        } else if textField.tag == 8 {
+            mySatisfaction = textField.text
+            
+        } else if textField.tag == 9 {
+            childSatisfaction = textField.text
+            
+        } else if textField.tag == 10 {
+            impressions = textField.text
             
         }
+        
+        print(textField.text)
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        print(textField.text)
+        
+//        if textField.tag == 0 {
+//            parkName = textField.text
+//            
+//        } else if textField.tag == 1 {
+//            place = textField.text
+//
+//        } else if textField.tag == 2 {
+//            time = textField.text
+//            
+//        } else if textField.tag == 3 {
+//            playGround = textField.text
+//            
+//        } else if textField.tag == 4 {
+//            bicycle = textField.text
+//            
+//        } else if textField.tag == 5 {
+//            swimming = textField.text
+//            
+//        } else if textField.tag == 6 {
+//            expectations = textField.text
+//            
+//        } else if textField.tag == 7 {
+//            stay = textField.text
+//            
+//        } else if textField.tag == 8 {
+//            mySatisfaction = textField.text
+//
+//        } else if textField.tag == 9 {
+//            childSatisfaction = textField.text
+//            
+//        } else if textField.tag == 10 {
+//            impressions = textField.text
+//            
+//        }
+        
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // キーボードを消す
         
@@ -183,7 +300,6 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
     @IBAction func save() {
         
         let object = NCMBObject(className: "Park")
-        
         object?.setObject(parkName, forKey: "parkName")
         object?.setObject(place, forKey: "place")
         object?.setObject(time, forKey: "time")
@@ -195,14 +311,46 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         object?.setObject(mySatisfaction, forKey: "mySatisfaction")
         object?.setObject(childSatisfaction, forKey: "childSatisfaction")
         object?.setObject(impressions, forKey: "impressions")
-
         
-        object;saveInBackground({ (error)in
-            if errror != nil {
+        /*let nameCell = parkInfoTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(nameCell.contentTextField.text, forKey: "parkName")
+        
+        let placeCell = parkInfoTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(placeCell.contentTextField.text, forKey: "place")
+
+        let timeCell = parkInfoTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(timeCell.contentTextField.text, forKey: "time")
+        
+        let playGroundCell = parkInfoTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(playGroundCell.contentTextField.text, forKey: "playGround")
+        
+        let bicycleCell = parkInfoTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(bicycleCell.contentTextField.text, forKey: "bicycle")
+        
+        let swimmingCell = parkInfoTableView.cellForRow(at: IndexPath(row: 5, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(swimmingCell.contentTextField.text, forKey: "swimming")
+        
+        let expectationsCell = parkInfoTableView.cellForRow(at: IndexPath(row: 6, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(expectationsCell.contentTextField.text, forKey: "expectations")
+
+        let stayCell = parkInfoTableView.cellForRow(at: IndexPath(row: 7, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(stayCell.contentTextField.text, forKey: "stay")
+
+        let mySatisfactionCell = parkInfoTableView.cellForRow(at: IndexPath(row: 8, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(mySatisfactionCell.contentTextField.text, forKey: "mySatisfaction")
+
+        let childSatisfactionCell = parkInfoTableView.cellForRow(at: IndexPath(row: 9, section: 0)) as! ParkInfoTableViewCell
+        object?.setObject(childSatisfactionCell.contentTextField.text, forKey: "childSatisfaction")
+
+        let impressionsCell = parkInfoTableView.cellForRow(at: IndexPath(row: 10, section: 0)) as! OKTableViewCell
+        object?.setObject(impressionsCell.contentTextView.text, forKey: "impressions")*/
+
+        object?.saveInBackground({ (error)in
+            if error != nil {
                 print(error)
-                
+            
             } else {
-                self.navigationController?;popViewController(animated: ture)
+                self.navigationController?.popViewController(animated: true)
                 
             }
             

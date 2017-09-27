@@ -12,6 +12,8 @@ class OKTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     
+    @IBOutlet var contentTextField: UITextField!
+    
     @IBOutlet var okLabel: UILabel!
 
     override func awakeFromNib() {
