@@ -8,14 +8,41 @@
 
 import UIKit
 import NCMB
+import NYXImagesKit
 
-class ParkViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate {
+class ParkViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITextFieldDelegate {
     
     var titleArray = ["公園名", "所在地", "所要時間", "遊具の種類", "自転車", "水遊び", "期待度", "滞在時間", "自分の満足度", "子供の満足度"]
     var okArray = ["感想"]
 
+    //入力項目文宣言する
+    
+    var parkName: String?
+    
+    var place: String?
+
+    var time: String?
+    
+    var playGround: String?
+    
+    var bicycle: String?
+
+    var swimming: String?
+
+    var expectations: String?
+    
+    var stay: String?
+    
+    var mySatisfaction: String?
+    
+    var childSatisfaction: String?
+    
+    var impressions: String?
+
 
     @IBOutlet var userImageView: UIImageView!
+    
+    @IBOutlet var userImageView2: UIImageView!
     
     @IBOutlet var parkInfoTableView: UITableView!
 
@@ -58,6 +85,10 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         
         if indexPath.row < 10 {
             parkInfoCell.titleLabel.text = titleArray[indexPath.row]
+            parkInfoCell.contentTextField.delegate = self
+            
+            parkInfoCell.contentTextField.tag = indexPath.row
+            
             // parkInfoCell.contentTextField.text =
             
             return parkInfoCell
@@ -72,32 +103,32 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
     
 //画像登録
     
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
-//        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
-//        let resizedImage = selectedImage.scale(byFactor: 0.4)
+        let resizedImage = selectedImage.scale(byFactor: 0.4)
     
-//        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     
-//        let data = UIImagePNGRepresentation(resizedImage!)
-//        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: data) as! NCMBFile
-//        file.saveInBackground( { (error) in
-//            if error != nil {
-//                print(error)
-//            } else {
-//                self.userImageView.image = selectedImage
-//            }
-//        }) { (progress) in
-//            print(progress)
-//        }
-//    }
+        let data = UIImagePNGRepresentation(resizedImage!)
+        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: data) as! NCMBFile
+        file.saveInBackground( { (error) in
+            if error != nil {
+                print(error)
+            } else {
+                self.userImageView.image = selectedImage
+            }
+        }) { (progress) in
+            print(progress)
+        }
+    }
 
     
 //カメラ起動、アルバム起動
     
     @IBAction func selectImage() {
-        let actionController = UIAlertController(title: "画像の選択", message: "選択して下さい",
+        let actionController = UIAlertController(title: "写真の選択", message: "選択して下さい",
                                                  preferredStyle: . actionSheet)
         let cameraAction = UIAlertAction(title: "カメラ", style: .default) { (action) in
             //　カメラ起動
@@ -111,7 +142,7 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
                 print("この機種ではカメラは使用できません")
             }
         }
-        let albumAction = UIAlertAction(title: "フォトライブラリ", style: .default) { (action) in
+        let albumAction = UIAlertAction(title: "アルバム", style: .default) { (action) in
             // アルバム起動
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) == true {
                 let picker = UIImagePickerController()
@@ -119,7 +150,7 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
                 picker.delegate = self
                 self.present(picker, animated: true, completion: nil)
             } else {
-                print("この機種ではフォトライブラリは使用できません")
+                print("この機種ではアルバムは使用できません")
             }
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
@@ -132,4 +163,51 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.text)
+        
+        if textField.tag == 0 {
+            parkName = textField.text
+        
+        } else if textField.tag == 1 {
+            
+        }
+        
+        // キーボードを消す
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    @IBAction func save() {
+        
+        let object = NCMBObject(className: "Park")
+        
+        object?.setObject(parkName, forKey: "parkName")
+        object?.setObject(place, forKey: "place")
+        object?.setObject(time, forKey: "time")
+        object?.setObject(playGround, forKey: "playGround")
+        object?.setObject(bicycle, forKey: "bicycle")
+        object?.setObject(swimming, forKey: "swimming")
+        object?.setObject(expectations, forKey: "expectations")
+        object?.setObject(stay, forKey: "stay")
+        object?.setObject(mySatisfaction, forKey: "mySatisfaction")
+        object?.setObject(childSatisfaction, forKey: "childSatisfaction")
+        object?.setObject(impressions, forKey: "impressions")
+
+        
+        object;saveInBackground({ (error)in
+            if errror != nil {
+                print(error)
+                
+            } else {
+                self.navigationController?;popViewController(animated: ture)
+                
+            }
+            
+        })
+        
+    }
+    
 }

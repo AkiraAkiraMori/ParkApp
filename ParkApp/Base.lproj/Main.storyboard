@@ -40,6 +40,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="公園リスト" id="U53-On-vs4">
+                        <barButtonItem key="leftBarButtonItem" title="⇦" id="API-tY-Imj">
+                            <connections>
+                                <action selector="back" destination="jaI-j6-g7I" id="PwM-uG-Oip"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CUA-fl-kci">
                             <connections>
                                 <segue destination="g8j-sa-2do" kind="show" identifier="toAdd" id="tcp-jE-avZ">
@@ -89,12 +94,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKG-AC-slR">
-                                <rect key="frame" x="8" y="72" width="148" height="101"/>
+                                <rect key="frame" x="8" y="73" width="148" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="button"/>
+                                <connections>
+                                    <action selector="selectImage" destination="g8j-sa-2do" eventType="touchUpInside" id="edX-UT-8hd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmH-Cd-R9j">
-                                <rect key="frame" x="164" y="72" width="148" height="101"/>
+                                <rect key="frame" x="164" y="73" width="148" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="button"/>
                             </button>
@@ -106,6 +114,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="parkInfoTableView" destination="RXL-et-yZ9" id="SKd-1N-uLB"/>
+                        <outlet property="userImageView" destination="h6J-bw-ALg" id="0Ze-P5-EHH"/>
+                        <outlet property="userImageView2" destination="bpz-Bn-Aoc" id="GSN-q2-Ri1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjD-js-DLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -136,7 +146,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xx4-ei-RvK" kind="presentation" modalTransitionStyle="coverVertical" id="d6k-Fl-iIW"/>
+                                    <segue destination="xx4-ei-RvK" kind="presentation" modalTransitionStyle="flipHorizontal" id="d6k-Fl-iIW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tatemono_kouen.png" translatesAutoresizingMaskIntoConstraints="NO" id="7w3-Bg-KfY">

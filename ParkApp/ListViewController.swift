@@ -81,5 +81,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         })
         
     }
+
+     @IBAction func back() {
+       //戻るコード
+       self.dismiss(animated: true, completion: nil)
+        
+    }
+
 }
 
