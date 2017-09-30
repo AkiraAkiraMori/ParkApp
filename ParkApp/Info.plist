@@ -29,10 +29,10 @@
 		<string>armv7</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>公園アプリのカメラへのアクセスを許可しますか？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>公園アプリのアルバムへのアクセスを許可しますか？</string>
 </dict>
 </plist>

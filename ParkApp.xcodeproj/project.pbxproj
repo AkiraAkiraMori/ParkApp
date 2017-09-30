@@ -87,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				23DD60C81F68EA28002FF866 /* AppDelegate.swift */,
-				236D850F1F7B531300A6717E /* Image */,
 				23DD60CA1F68EA28002FF866 /* ListViewController.swift */,
 				236D850B1F7B4E9100A6717E /* FirstViewController.swift */,
 				23DD60DA1F68F217002FF866 /* ParkViewController.swift */,
@@ -99,6 +98,7 @@
 				23DD60CF1F68EA28002FF866 /* Assets.xcassets */,
 				23DD60D11F68EA28002FF866 /* LaunchScreen.storyboard */,
 				23DD60D41F68EA28002FF866 /* Info.plist */,
+				236D850F1F7B531300A6717E /* Image */,
 			);
 			path = ParkApp;
 			sourceTree = "<group>";
