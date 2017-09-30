@@ -60,6 +60,15 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         
         parkInfoTableView.register(parkInfoNib, forCellReuseIdentifier: "ParkInfoCell")
         parkInfoTableView.register(okNib, forCellReuseIdentifier: "OKCell")
+    
+    
+        //TableViewの背景に画像を設定
+        super.viewDidLoad()
+        let image = UIImage(named: "diamond_upholstery_@2X.png")
+        let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: self.parkInfoTableView.frame.width, height: self.parkInfoTableView.frame.height))
+        imageView.image = image
+        self.parkInfoTableView.backgroundView = imageView
+    
     }
 
 //登録画像の表示
@@ -175,6 +184,8 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         picker.dismiss(animated: true, completion: nil)
     
         let data = UIImagePNGRepresentation(resizedImage!)
+        
+        
         let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: data) as! NCMBFile
         file.saveInBackground( { (error) in
             if error != nil {
