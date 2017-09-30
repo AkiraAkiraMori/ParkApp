@@ -119,7 +119,6 @@
                     <connections>
                         <outlet property="parkInfoTableView" destination="RXL-et-yZ9" id="SKd-1N-uLB"/>
                         <outlet property="userImageView" destination="h6J-bw-ALg" id="0Ze-P5-EHH"/>
-                        <outlet property="userImageView2" destination="bpz-Bn-Aoc" id="GSN-q2-Ri1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjD-js-DLj" userLabel="First Responder" sceneMemberID="firstResponder"/>

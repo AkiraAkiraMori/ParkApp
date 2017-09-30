@@ -62,6 +62,26 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         parkInfoTableView.register(okNib, forCellReuseIdentifier: "OKCell")
     }
 
+//登録画像の表示
+//    override func viewWillAppear(_ animated: Bool) {
+//        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: nil) as! NCMBFile
+//        file.getDataInBackground { (data, error) in
+//            if error != nil {
+//                print(error)
+//
+//            } else {
+//                if data != nil {
+//                    let image = UIImage(data: data!)
+//                    self.userImageView.image = image
+//                }
+                
+//            }
+            
+            
+//        }
+        
+//    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
