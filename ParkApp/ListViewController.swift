@@ -23,6 +23,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         memoTableView.tableFooterView = UIView()
+
+        //TableViewの背景に画像を設定
+//        super.viewDidLoad()
+//        let image = UIImage(named: "weather.png")
+//        let imageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.frame.width, self.tableView.frame.height))
+//        imageView.image = image
+//        self.tableView.backgroundView = imageView
         
     }
     
