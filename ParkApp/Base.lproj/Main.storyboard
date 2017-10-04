@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--公園リスト-->
+        <!--遊び場リスト-->
         <scene sceneID="Osz-DQ-Ii0">
             <objects>
                 <viewController id="jaI-j6-g7I" customClass="ListViewController" customModule="ParkApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="公園リスト" id="U53-On-vs4">
+                    <navigationItem key="navigationItem" title="遊び場リスト" id="U53-On-vs4">
                         <barButtonItem key="leftBarButtonItem" title="⇦" id="API-tY-Imj">
                             <connections>
                                 <action selector="back" destination="jaI-j6-g7I" id="PwM-uG-Oip"/>
@@ -58,16 +58,13 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="memoTableView" destination="ASy-Ky-89z" id="kza-nU-FhS"/>
-                        <segue destination="eSc-Kl-vQY" kind="show" identifier="toDetail" id="7ld-Ra-mZD">
-                            <nil key="action"/>
-                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLt-Mk-LMm" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741" y="162"/>
         </scene>
-        <!--公園情報-->
+        <!--詳細情報-->
         <scene sceneID="c7g-nY-wLv">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="g8j-sa-2do" customClass="ParkViewController" customModule="ParkApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,21 +112,21 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="photo1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wTd-3l-6JG">
                                 <rect key="frame" x="33" y="170" width="97" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="photo2" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ALD-U2-4nM">
                                 <rect key="frame" x="190" y="170" width="97" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="公園情報" id="PPk-Qs-GP7">
+                    <navigationItem key="navigationItem" title="詳細情報" id="PPk-Qs-GP7">
                         <barButtonItem key="leftBarButtonItem" title="⇦" id="s7l-Ic-tKx">
                             <connections>
                                 <action selector="back" destination="g8j-sa-2do" id="huw-t4-Zku"/>
@@ -149,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjD-js-DLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1481.25" y="43.309859154929576"/>
+            <point key="canvasLocation" x="1761" y="162"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="n11-PE-6dZ">
@@ -170,8 +167,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOA-ya-aKy">
                                 <rect key="frame" x="16" y="279" width="288" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="公園リスト">
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="25"/>
+                                <state key="normal" title="遊び場リスト">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -189,55 +186,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7b-tf-FJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-994" y="304"/>
-        </scene>
-        <!--詳細-->
-        <scene sceneID="ilo-9V-qwi">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="eSc-Kl-vQY" customClass="DetailViewController" customModule="ParkApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Jh-MT-8vx"/>
-                        <viewControllerLayoutGuide type="bottom" id="a9j-N8-KXX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pyI-oS-Gg4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7O-lw-05g">
-                                <rect key="frame" x="16" y="86" width="288" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94559151789999996" green="0.94559151789999996" blue="0.94559151789999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTI-cS-dA4">
-                                <rect key="frame" x="16" y="202" width="288" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="更新">
-                                    <color key="titleColor" red="1" green="0.98857441329999995" blue="0.042254892369999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="updata" destination="eSc-Kl-vQY" eventType="touchUpInside" id="h4y-Gx-dVs"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="詳細" id="UbX-uB-t04">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qy7-Z2-8K0">
-                            <connections>
-                                <action selector="delete" destination="eSc-Kl-vQY" id="bHr-LV-eNO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="memoTextView" destination="G7O-lw-05g" id="zlW-Hq-Pdk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fDr-Ra-vif" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1611" y="1166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FKN-aE-1Zc">

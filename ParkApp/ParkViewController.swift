@@ -13,7 +13,7 @@ import SVProgressHUD
 
 class ParkViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITextFieldDelegate {
     
-    var titleArray = ["公園名", "所在地", "所要時間", "遊具の種類", "自転車", "水遊び", "期待度", "滞在時間", "自分の満足度", "子供の満足度"]
+    var titleArray = ["名称", "所在地", "所要時間", "遊具の種類", "自転車", "水遊び", "期待度", "滞在時間", "自分の満足度", "子供の満足度"]
     var okArray = ["感想"]
     
     var toObject: NCMBObject?
