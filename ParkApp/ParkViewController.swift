@@ -9,6 +9,7 @@
 import UIKit
 import NCMB
 import NYXImagesKit
+import SVProgressHUD
 
 class ParkViewController: UIViewController, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITextFieldDelegate {
     
@@ -35,8 +36,15 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         park = Park()
         park.parkName = toObject?.object(forKey: "parkName") as? String
         park?.place = toObject?.object(forKey: "place") as? String
+        park?.time = toObject?.object(forKey: "time") as? String
+        park?.playGround = toObject?.object(forKey: "playGround") as? String
         park?.bicycle = toObject?.object(forKey: "bicycle") as? String
-    
+        park?.swimming = toObject?.object(forKey: "swimming") as? String
+        park?.expectations = toObject?.object(forKey: "expectations") as? String
+        park?.stay = toObject?.object(forKey: "stay") as? String
+        park?.mySatisfaction = toObject?.object(forKey: "mySatisfaction") as? String
+        park?.childSatisfaction = toObject?.object(forKey: "childSatisfaction") as? String
+        park?.impressions = toObject?.object(forKey: "impressions") as? String
         
         parkInfoTableView.dataSource = self
         parkInfoTableView.delegate = self
@@ -89,16 +97,16 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         //登録画像の表示①
         override func viewWillAppear(_ animated: Bool) {
         let file = NCMBFile.file(withName: Date().description, data: nil) as! NCMBFile
+            SVProgressHUD.show(withStatus: "ロード中...")
         file.getDataInBackground { (data, error) in
+            SVProgressHUD.dismiss()
             if error != nil {
                 print(error)
-
             } else {
                 if data != nil {
                     let image = UIImage(data: data!)
                     self.userImageView.image = image
                 }
-                
             }
             
         }
@@ -483,43 +491,22 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         }
         
     }
+    
+    @IBAction func back() {
+        //戻るコード
+        self.navigationController?.popViewController(animated: true)
+    }
+}
 
-    //削除ボタン
+//削除ボタン
 //    @IBAction func delete() {
 //
-//        let object = NCMBObject(className: "Park")
-//    　　　object?.setObject(parkName, forKey: "parkName")
-//    　　　object?.setObject(place, forKey: "place")
-//    　　　object?.setObject(time, forKey: "time")
-//    　　　object?.setObject(playGround, forKey: "playGround")
-//    　　　object?.setObject(bicycle, forKey: "bicycle")
-//    　　　object?.setObject(swimming, forKey: "swimming")
-//    　　　object?.setObject(expectations, forKey: "expectations")
-//    　　　object?.setObject(stay, forKey: "stay")
-//    　　　object?.setObject(mySatisfaction, forKey: "mySatisfaction")
-//    　　　object?.setObject(childSatisfaction, forKey: "childSatisfaction")
-//    　　　object?.setObject(impressions, forKey: "impressions")
-
-//    　　　object?.deleteInBackground({ (error)in
-//        if error != nil {
-//        print(error)
-    
-//        } else {
-//       self.navigationController?.popViewController(animated: true)
-    
-//      }
-
-//    })
-    
-//}
-
-
 //        selectedMemo.deleteInBackground{ (error) in
 //            if error != nil {
 //                SVProgressHUD.showError(withStatus: error?.localizedDescription)
 //
 //            } else {
-                //削除成功
+//削除成功
 //                let alertController = UIAlertController(title: "削除完了", message: "メモの削除が完了しました。メモ一覧に戻ります。", preferredStyle: .alert)
 //                let action = UIAlertAction(title: "OK", style: .default, handler: {(action) in
 //                    self.navigationController?.popViewController(animated: true)
@@ -530,10 +517,6 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
 //            }
 //        }
 //    }
-
-}
-
-
 
 
 //過去の遺産

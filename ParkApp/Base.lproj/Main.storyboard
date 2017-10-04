@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLt-Mk-LMm" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="279.92957746478874"/>
+            <point key="canvasLocation" x="741" y="162"/>
         </scene>
         <!--公園情報-->
         <scene sceneID="c7g-nY-wLv">
@@ -130,7 +130,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="公園情報" id="PPk-Qs-GP7">
-                        <barButtonItem key="leftBarButtonItem" title="⇦" id="s7l-Ic-tKx"/>
+                        <barButtonItem key="leftBarButtonItem" title="⇦" id="s7l-Ic-tKx">
+                            <connections>
+                                <action selector="back" destination="g8j-sa-2do" id="huw-t4-Zku"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="snT-IT-9ai">
                             <connections>
                                 <action selector="save" destination="g8j-sa-2do" id="irV-mx-gvL"/>
