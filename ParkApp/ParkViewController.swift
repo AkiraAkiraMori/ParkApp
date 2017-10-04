@@ -71,25 +71,24 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
     
     }
 
-//登録画像の表示
-//    override func viewWillAppear(_ animated: Bool) {
-//        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: nil) as! NCMBFile
-//        file.getDataInBackground { (data, error) in
-//            if error != nil {
-//                print(error)
-//
-//            } else {
-//                if data != nil {
-//                    let image = UIImage(data: data!)
-//                    self.userImageView.image = image
-//                }
+        //登録画像の表示①
+        override func viewWillAppear(_ animated: Bool) {
+        let file = NCMBFile.file(withName: Date().description, data: nil) as! NCMBFile
+        file.getDataInBackground { (data, error) in
+            if error != nil {
+                print(error)
+
+            } else {
+                if data != nil {
+                    let image = UIImage(data: data!)
+                    self.userImageView.image = image
+                }
                 
-//            }
+            }
             
-            
-//        }
-        
-//    }
+        }
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -186,7 +185,7 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
         let data = UIImagePNGRepresentation(resizedImage!)
         
         
-        let file = NCMBFile.file(withName: NCMBUser.current().objectId, data: data) as! NCMBFile
+        let file = NCMBFile.file(withName: Date().description, data: data) as! NCMBFile
         file.saveInBackground( { (error) in
             if error != nil {
                 print(error)
