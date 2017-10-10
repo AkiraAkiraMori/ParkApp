@@ -40,6 +40,7 @@
 		23989CCD1F888E0D00EF3BF4 /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23989CB21F888E0D00EF3BF4 /* iTunesArtwork@1x.png */; };
 		23989CCE1F888E0D00EF3BF4 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23989CB31F888E0D00EF3BF4 /* iTunesArtwork@2x.png */; };
 		23989CCF1F888E0D00EF3BF4 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23989CB41F888E0D00EF3BF4 /* iTunesArtwork@3x.png */; };
+		239C41EB1F8CA1FC00A72DCF /* ヒラギノ角ゴシック W3.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 239C41EA1F8CA19100A72DCF /* ヒラギノ角ゴシック W3.ttc */; };
 		23C31D3D1F7F429C0072BCD1 /* diamond_upholstery_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 23C31D3C1F7F429C0072BCD1 /* diamond_upholstery_@2X.png */; };
 		23C31D3F1F7F42A10072BCD1 /* green_dust_scratch_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 23C31D3E1F7F42A10072BCD1 /* green_dust_scratch_@2X.png */; };
 		23C31D411F7F42A50072BCD1 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 23C31D401F7F42A50072BCD1 /* weather.png */; };
@@ -58,6 +59,7 @@
 		234F3A461F69211B00948CAB /* ParkInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkInfoTableViewCell.xib; sourceTree = "<group>"; };
 		234F3A491F6925D500948CAB /* OKTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKTableViewCell.swift; sourceTree = "<group>"; };
 		234F3A4A1F6925D500948CAB /* OKTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OKTableViewCell.xib; sourceTree = "<group>"; };
+		23615ED61F8C93A3000DC558 /* back2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back2.jpg; sourceTree = "<group>"; };
 		236D850B1F7B4E9100A6717E /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		236D85101F7B53A900A6717E /* tatemono_kouen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tatemono_kouen.png; sourceTree = "<group>"; };
 		236D85111F7B53A900A6717E /* hawaii_waikiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hawaii_waikiki.png; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		23989CB21F888E0D00EF3BF4 /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		23989CB31F888E0D00EF3BF4 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		23989CB41F888E0D00EF3BF4 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
+		239C41EA1F8CA19100A72DCF /* ヒラギノ角ゴシック W3.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W3.ttc"; sourceTree = "<group>"; };
+		239C41EC1F8CA6F900A72DCF /* ヒラギノ角ゴシック W7.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W7.ttc"; sourceTree = "<group>"; };
 		23C31D3C1F7F429C0072BCD1 /* diamond_upholstery_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond_upholstery_@2X.png"; sourceTree = "<group>"; };
 		23C31D3E1F7F42A10072BCD1 /* green_dust_scratch_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_dust_scratch_@2X.png"; sourceTree = "<group>"; };
 		23C31D401F7F42A50072BCD1 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		236D850F1F7B531300A6717E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				23615ED61F8C93A3000DC558 /* back2.jpg */,
 				23C31D401F7F42A50072BCD1 /* weather.png */,
 				23C31D3E1F7F42A10072BCD1 /* green_dust_scratch_@2X.png */,
 				23C31D3C1F7F429C0072BCD1 /* diamond_upholstery_@2X.png */,
@@ -205,6 +210,8 @@
 				234F3A491F6925D500948CAB /* OKTableViewCell.swift */,
 				234F3A4A1F6925D500948CAB /* OKTableViewCell.xib */,
 				23DD60CC1F68EA28002FF866 /* Main.storyboard */,
+				239C41EA1F8CA19100A72DCF /* ヒラギノ角ゴシック W3.ttc */,
+				239C41EC1F8CA6F900A72DCF /* ヒラギノ角ゴシック W7.ttc */,
 				23DD60CF1F68EA28002FF866 /* Assets.xcassets */,
 				23DD60D11F68EA28002FF866 /* LaunchScreen.storyboard */,
 				23DD60D41F68EA28002FF866 /* Info.plist */,
@@ -320,6 +327,7 @@
 				23DD60CE1F68EA28002FF866 /* Main.storyboard in Resources */,
 				23989CC41F888E0D00EF3BF4 /* Icon-App-60x60@3x.png in Resources */,
 				23989CBC1F888E0D00EF3BF4 /* Icon-App-29x29@3x.png in Resources */,
+				239C41EB1F8CA1FC00A72DCF /* ヒラギノ角ゴシック W3.ttc in Resources */,
 				23989CCE1F888E0D00EF3BF4 /* iTunesArtwork@2x.png in Resources */,
 				23989CC11F888E0D00EF3BF4 /* Icon-App-57x57@2x.png in Resources */,
 				23989CB91F888E0D00EF3BF4 /* Icon-App-20x20@3x.png in Resources */,
