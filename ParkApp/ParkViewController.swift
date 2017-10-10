@@ -333,9 +333,18 @@ class ParkViewController: UIViewController, UITableViewDataSource, UIImagePicker
     //登録ボタン
     @IBAction func save() {
         
+        if park.parkName == nil {
+            let alert = UIAlertController(title: "未入力", message: "公園名を入力してください", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         if (park.parkName?.characters.count)! > 0 {
-            
-            
+
             // parkNameの検索
             let query = NCMBQuery(className: "Park")
             query?.whereKey("parkName", equalTo: park.parkName!)
